@@ -1,0 +1,9 @@
+.cell {
+  cursor: crosshair;
+  border: 1px solid black;
+  margin: 2px;
+  padding: 2px;
+  text-overflow: ellipsis;
+  text-align: left;
+  width: 80px;
+}
