@@ -23,6 +23,17 @@
   color: #61dafb;
 }
 
+.export-button {
+  border-radius: 2px;
+  cursor: pointer;
+  background-color: #1a91eb;
+  color: white;
+  font-size: 14px;
+  border: none;
+  padding: 11px 25px;
+  text-transform: uppercase;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
