@@ -11,8 +11,10 @@ export default class Table extends React.Component {
 
   render() {
     return (
-      <div className={styles.table}>
-        {this.renderRows()}
+      <div className={styles.container}>
+        <div className={styles.table}>
+          {this.renderRows()}
+        </div>
       </div>
     )
   }
