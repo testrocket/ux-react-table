@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  margin: 2px;
+}
+
+.header div {
+  cursor: pointer;
+  border: 1px solid black;
+  margin: 2px;
+  padding: 2px;
+  text-align: center;
+  width: 80px;
+}

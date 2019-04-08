@@ -1,5 +1,6 @@
 import React from 'react';
 import TableRow from './table-row';
+import TableHeader from './table-header';
 import styles from './index.module.css';
 
 export default class Table extends React.Component {
@@ -13,6 +14,7 @@ export default class Table extends React.Component {
     return (
       <div className={styles.container}>
         <div className={styles.table}>
+          <TableHeader rows={this.props.model.rows}/>
           {this.renderRows()}
         </div>
       </div>
