@@ -58,13 +58,13 @@ class App extends Component {
           <div>
             <div>
               <input type="text" ref={this.rowIndexRef} placeholder="0" />
-              <button onClick={this.insertRow}>Add</button>
-              <button onClick={this.removeRow}>Remove</button>
+              <button onClick={this.insertRow}>Add row</button>
+              <button onClick={this.removeRow}>Remove row</button>
             </div>
             <div>
               <input type="text" ref={this.columnIndexRef} placeholder="0" />
-              <button onClick={this.insertColumn}>Add</button>
-              <button onClick={this.removeColumn}>Remove</button>
+              <button onClick={this.insertColumn}>Add column</button>
+              <button onClick={this.removeColumn}>Remove column</button>
             </div>
 
           </div>

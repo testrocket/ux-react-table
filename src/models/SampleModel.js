@@ -26,7 +26,7 @@ export default {
         { value: '2', key: uniqueId('cell_') },
         { value: 'February', key: uniqueId('cell_') },
         { value: '2000$', key: uniqueId('cell_') },
-        { value: '', key: uniqueId('cell_') },
+        { value: 'Still cold outside!', key: uniqueId('cell_') },
       ]
     },
     {
