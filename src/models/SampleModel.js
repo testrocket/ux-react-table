@@ -1,7 +1,33 @@
+import { uniqueId } from 'lodash';
+
 export default {
   rows: [
-    [{ value: 'cell 1' }, { value: 'second cell' }, { value: 'abc' }, { value: 'fourth cell' }],
-    [{ value: 'cell 2' }, { value: 'second cell' }, { value: 'xyz' }, { value: 'fourth cell' }],
-    [{ value: 'cell 3' }, { value: 'second cell' }, { value: '123' }, { value: 'fourth cell' }],
+    {
+      key: uniqueId('row_'),
+      cells: [
+        { value: 'cell 1', key: uniqueId('cell_') },
+        { value: 'second cell', key: uniqueId('cell_') },
+        { value: 'abc', key: uniqueId('cell_') },
+        { value: 'fourth cell', key: uniqueId('cell_') },
+      ]
+    },
+    {
+      key: uniqueId('row_'),
+      cells: [
+        { value: 'cell 2', key: uniqueId('cell_'), },
+        { value: 'second cell', key: uniqueId('cell_'), },
+        { value: 'xyz', key: uniqueId('cell_') },
+        { value: 'fourth cell', key: uniqueId('cell_') },
+      ]
+    },
+    {
+      key: uniqueId('row_'),
+      cells: [
+        { value: 'cell 3', key: uniqueId('cell_') },
+        { value: 'second cell', key: uniqueId('cell_') },
+        { value: '123', key: uniqueId('cell_') },
+        { value: 'fourth cell', key: uniqueId('cell_') },
+      ]
+    },
   ]
 };

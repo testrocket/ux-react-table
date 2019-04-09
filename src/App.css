@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
+.App-controls {
+  display: flex;
 }
 
 .App-logo {
@@ -23,6 +23,13 @@
   color: #61dafb;
 }
 
+
+.export-container {
+ 
+  margin-top: 50px;
+
+}
+
 .export-button {
   border-radius: 2px;
   cursor: pointer;
@@ -33,6 +40,7 @@
   padding: 11px 25px;
   text-transform: uppercase;
 }
+
 
 @keyframes App-logo-spin {
   from {

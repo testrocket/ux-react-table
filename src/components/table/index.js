@@ -1,21 +1,24 @@
 import React from 'react';
-import TableRow from './table-row';
 import TableHeader from './table-header';
+import TableBody from './table-body';
 import styles from './index.module.css';
 
 export default class Table extends React.Component {
 
-  renderRows() {
-    return this.props.model.rows.map((row, i) =>
-      <TableRow key={i} row={row} />);
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      model: this.props.model,
+    };
   }
 
   render() {
     return (
       <div className={styles.container}>
         <div className={styles.table}>
-          <TableHeader rows={this.props.model.rows}/>
-          {this.renderRows()}
+          <TableHeader rows={this.props.model.rows} />
+          <TableBody model={this.props.model}/>
         </div>
       </div>
     )

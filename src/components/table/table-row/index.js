@@ -5,8 +5,8 @@ import TableCell from '../table-cell';
 export default class Table extends React.Component {
 
   renderCells() {
-    return this.props.row.map((cell, index) =>
-      <TableCell key={index} cell={cell} />);
+    return this.props.row.cells.map(cell =>
+      <TableCell key={cell.key} cell={cell} />);
   }
 
   render() {
