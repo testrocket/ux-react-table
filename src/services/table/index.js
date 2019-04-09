@@ -26,17 +26,17 @@ export function insertTableRow(tableModel, beforeRowIndex) {
       .cloneDeep()
       .get('cells')
       .forEach(cell => {
-        cell.key = _.uniqueId('cell_');
+        cell.key = nextCellKey();
         cell.value = String.fromCharCode(160);
       })
       .value();
 
-    tableModel.rows.splice(index, 0, { key: _.uniqueId('row_'), cells });
+    tableModel.rows.splice(index, 0, { key: nextRowKey(), cells });
   }
 
   function insertFirstRow() {
     tableModel.rows.push({
-      key: _.uniqueId('row_'),
+      key: nextRowKey(),
       cells: [newEmptyCell()]
     });
   }
@@ -45,10 +45,7 @@ export function insertTableRow(tableModel, beforeRowIndex) {
 }
 
 function newEmptyCell() {
-  return {
-    key: _.uniqueId('cell_'),
-    value: '',
-  };
+  return { key: nextCellKey(), value: String.fromCharCode(160) };
 }
 
 export function removeTableRow(tableModel, rowIndexToRemove) {
@@ -84,4 +81,12 @@ export function removeTableColumn(tableModel, columnIndexToRemove) {
   }
 
   return tableModel;
+}
+
+export function nextRowKey() {
+  return _.uniqueId('row_');
+}
+
+export function nextCellKey() {
+  return _.uniqueId('cell_');
 }
