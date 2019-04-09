@@ -2,7 +2,7 @@ import React from 'react';
 import TableHeader from './table-header';
 import TableBody from './table-body';
 import styles from './index.module.css';
-import { updateTableModel } from '../../services/table';
+import * as tableService from '../../services/table';
 
 export default class Table extends React.Component {
 
@@ -17,7 +17,7 @@ export default class Table extends React.Component {
   }
 
   onTableUpdated(rowKey, cellKey, value) {
-    const model = updateTableModel(this.state.model, rowKey, cellKey, value);
+    const model = tableService.updateTableCell(this.state.model, rowKey, cellKey, value);
 
     this.setState({ model })
   }

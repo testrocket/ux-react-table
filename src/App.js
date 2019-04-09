@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Table from './components/table';
 import sampleModel from './models/SampleModel';
-import { exportToCSV, downloadContent } from './services/exporter';
+import * as exporterService from './services/exporter';
+import * as tableService from './services/table';
 
 class App extends Component {
 
@@ -12,40 +13,68 @@ class App extends Component {
     this.state = {
       model: sampleModel
     };
+
+    this.rowIndexRef = React.createRef();
+    this.columnIndexRef = React.createRef();
   }
 
   exportAsCSVFile = () => {
-    downloadContent(exportToCSV(this.state.model));
+    exporterService.downloadContent(exporterService.exportToCSV(this.state.model));
   }
 
-  onInsertRow() {
-    console.log('app on insert row')
+  insertRow = () => {
+    const model = tableService.insertTableRow(this.state.model, this._parseRowIndex());
+    this.setState({ model });
   }
 
-  onInsertColumn() {
-    console.log('app on insert column')
+  removeRow = () => {
+    const model = tableService.removeTableRow(this.state.model, this._parseRowIndex());
+    this.setState({ model });
+  }
+
+  insertColumn = () => {
+    const model = tableService.insertTableColumn(this.state.model, this._parseColumnIndex());
+    this.setState({ model });
+  }
+
+  removeColumn = () => {
+    const model = tableService.removeTableColumn(this.state.model, this._parseColumnIndex());
+    this.setState({ model });
+  }
+
+  _parseRowIndex() {
+    return parseInt(this.rowIndexRef.current.value, 10) || 0;
+  }
+
+  _parseColumnIndex() {
+    return parseInt(this.columnIndexRef.current.value, 10) || 0;
   }
 
   render() {
     return (
       <div className="App">
+        <div className="help">Add or remove rows / columns (type row or column index)</div>
+        <div className="table-controls">
+          <div>
+            <div>
+              <input type="text" ref={this.rowIndexRef} placeholder="0" />
+              <button onClick={this.insertRow}>Add</button>
+              <button onClick={this.removeRow}>Remove</button>
+            </div>
+            <div>
+              <input type="text" ref={this.columnIndexRef} placeholder="0" />
+              <button onClick={this.insertColumn}>Add</button>
+              <button onClick={this.removeColumn}>Remove</button>
+            </div>
+
+          </div>
+        </div>
+        <div className="help">Double click on cell to edit</div>
         <Table model={this.state.model}
           onInsertRow={this.onInsertRow}
           onInsertColumn={this.onInsertColumn} />
-        <div className="App-controls">
-          <div>
-            <div>
-              <input type="text" placeholder="Row index..." />
-              <button onClick={this.onInsertRow}>Add</button>
-            </div>
-            <div>
-              <input type="text" placeholder="Column index..." />
-              <button onClick={this.onInsertColumn}>Add</button>
-            </div>
-            <div className="export-container">
-              <button className="export-button" onClick={this.exportAsCSVFile}>Export to CSV</button>
-            </div>
-          </div>
+        <div className="export-container">
+          <button className="export-button" onClick={this.exportAsCSVFile}>Export to CSV</button>
         </div>
       </div>
     );
