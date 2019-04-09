@@ -6,4 +6,5 @@
   text-overflow: ellipsis;
   text-align: left;
   width: 120px;
+  overflow: hidden;
 }
