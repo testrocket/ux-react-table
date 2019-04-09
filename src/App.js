@@ -4,6 +4,7 @@ import Table from './components/table';
 import sampleModel from './models/SampleModel';
 import * as exporterService from './services/exporter';
 import * as tableService from './services/table';
+import * as downloadService from './services/download';
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
   }
 
   exportAsCSVFile = () => {
-    exporterService.downloadContent(exporterService.exportToCSV(this.state.model));
+    downloadService.downloadContent(exporterService.exportToCSV(this.state.model));
   }
 
   insertRow = () => {
