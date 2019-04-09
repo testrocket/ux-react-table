@@ -18,8 +18,7 @@ export default class Table extends React.Component {
 
   onTableUpdated(rowKey, cellKey, value) {
     const model = tableService.updateTableCell(this.state.model, rowKey, cellKey, value);
-
-    this.setState({ model })
+    this.setState({ model });
   }
 
   render() {
@@ -30,6 +29,6 @@ export default class Table extends React.Component {
           <TableBody model={this.state.model} onTableUpdated={this.onTableUpdated}/>
         </div>
       </div>
-    )
+    );
   }
 }

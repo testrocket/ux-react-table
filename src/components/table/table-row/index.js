@@ -28,6 +28,6 @@ export default class TableRow extends React.Component {
       <div className={styles.row}>
         {this.renderCells()}
       </div>
-    )
-  };
+    );
+  }
 }

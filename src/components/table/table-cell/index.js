@@ -40,7 +40,7 @@ export default class TableCell extends React.Component {
         onDoubleClick={this.handleDoubleClick}>
         {this.props.cell.value}
       </div>
-    )
+    );
   }
 }
 
