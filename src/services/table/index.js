@@ -1,13 +1,13 @@
 import * as _ from 'lodash';
 
-export function updateTableCell(tableModel, rowKey, cellKey, value) {
-  const cell = _.chain(tableModel.rows)
+export function updateTableCell(tableModel, rowKey, cellKey, newCellValue) {
+  _.chain(tableModel.rows)
     .find(row => row.key === rowKey)
     .get('cells')
     .find(cell => cell.key === cellKey)
+    .tap(cell => cell.value = newCellValue)
     .value();
 
-  cell.value = value;
   return tableModel;
 }
 
