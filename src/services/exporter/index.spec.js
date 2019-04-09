@@ -21,9 +21,8 @@ describe('Test exporter function', () => {
             { value: 'xyz', key: 'cell_3' },
           ]
         },
+      ]
     };
-
-    
 
     expect(exportToCSV(tableModel)).toEqual('aaa,bbb\nzzz,xyz');
   });

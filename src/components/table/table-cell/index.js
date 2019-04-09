@@ -8,7 +8,6 @@ export default class TableCell extends React.Component {
 
     this.state = {
       editing: false,
-      value: props.value,
     };
 
     this.cellRef = React.createRef();
@@ -25,8 +24,10 @@ export default class TableCell extends React.Component {
   onBlur = () => {
     this.setState({
       editing: false,
-      value: this.cellRef.current.innerText,
     });
+
+    this.props.onCellUpdated(this.props.rowKey, this.props.cell.key,
+      this.cellRef.current.innerText);
   }
 
   render() {
@@ -35,7 +36,7 @@ export default class TableCell extends React.Component {
         ref={this.cellRef}
         contentEditable={this.state.editing}
         suppressContentEditableWarning={true}
-        onBlur={this.emitChange}
+        onBlur={this.onBlur}
         onDoubleClick={this.handleDoubleClick}>
         {this.props.cell.value}
       </div>
